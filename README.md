@@ -1,29 +1,28 @@
-# Abstract
-
-**Sesscion-Key Aspect** allows EoA to extend several sub-keys named **Session Key**.
-
-Session keys are able to **stand in for** EoA private key to sign a **specific transaction**. These keys will automatically expire at the block height, which is set by EoA. They are also limited to sign specific transactions, calling only specific smart contract methods.
+# Session-Key Aspect
+## Use Case Summary
+**Sesscion-Key Aspect** enables Ethereum on-chain accounts (EoA) to extend their capabilities by creating and managing session keys. These session keys can stand in for the EoA's private key to sign specific transactions and are time-limited, expiring at a block height set by the EoA. They are designed to sign specific transactions, allowing for improved security and usability in various applications.
 
 **With Session-Key Aspect, you can enable following features for your dApp:**
 * Enable On-Click-Trading for defi protocol
 * Improve UX and wallet security for mini web app (like PWA, bot and TWA in Telegram)
 * Use your dApp like web2 products: login once, and click without interacting with the wallet
 
-# Project Intro
+## Team Members and Roles
+Team Member 1: [Mike Ma - Core Dev]
 
-* Folder [aspect](https://github.com/artela-network/session-key-aspect/blob/main/aspect/README.md) implements the session key Aspect;
-* Folder [js_client](https://github.com/artela-network/session-key-aspect/blob/main/js_client/session_key_aspect_client/README.md) implements the session key Aspect javascript client.
+## Problem Addressed
+The team aims to address the problem of limited flexibility and security in managing Ethereum accounts. When interacting with the wallet. EoAs often face limitations in terms of transaction signing and managing multiple accounts with various functions. The Session-Key Aspect is designed to provide a solution to these challenges by allowing EoAs to create session keys for specific transactions, improving both security and usability.
 
-# Integration
-* Bind session key Aspect to you contract by this [guide](https://github.com/artela-network/session-key-aspect/blob/main/aspect/README.md)
-* Integrate js client to you font-end dApp by this [guide](https://github.com/artela-network/session-key-aspect/blob/main/js_client/session_key_aspect_client/README.md)
+For example, in high-frequency trading, each transaction requires interaction with the wallet, and each time, you need to click on the wallet to sign. However, with the session-key, one-click trading becomes possible.
 
 
-# Session-key Overview
+## Project Design
 
-## 1. EoA binding session key to Aspect
+### Session-key Overview
 
-![截屏2023-11-09 15.37.26.png](https://github.com/artela-network/session-key-aspect/blob/main/img/2023-11-09-15.37.26.png)
+#### 1. EoA binding session key to Aspect
+
+![截屏2023-11-09 15.37.26.png](https://github.com/QiyuanMa/session-key-aspect-example/blob/main/img/2023-11-09-15.37.26.png)
 
 
 
@@ -35,9 +34,9 @@ Additional info:
 
   
 
-## 2. Use session key to sign transaction
+#### 2. Use session key to sign transaction
 
-![截屏2023-11-09 15.32.38.png](https://github.com/artela-network/session-key-aspect/blob/main/img/2023-11-09-15.32.38.png)
+![截屏2023-11-09 15.32.38.png](https://github.com/QiyuanMa/session-key-aspect-example/blob/main/img/2023-11-09-15.32.38.png)
 
 Additional info :
 
@@ -47,9 +46,9 @@ Additional info :
 
   
 
-## 3. Artela verify the transaction
+#### 3. Artela verify the transaction
 
-![截屏2023-11-09 15.52.20.png](https://github.com/artela-network/session-key-aspect/blob/main/img/2023-11-09-15.52.20.png)
+![截屏2023-11-09 15.52.20.png](https://github.com/QiyuanMa/session-key-aspect-example/blob/main/img/2023-11-09-15.52.20.png)
 
 Additional info
 
@@ -57,9 +56,9 @@ Additional info
 
   
 
-## 4. Call contract
+#### 4. Call contract
 
-![截屏2023-11-09 15.54.18.png](https://github.com/artela-network/session-key-aspect/blob/main/img/2023-11-09-15.54.18.png)
+![截屏2023-11-09 15.54.18.png](https://github.com/QiyuanMa/session-key-aspect-example/blob/main/img/2023-11-09-15.54.18.png)
 
 Additional info
 
@@ -67,48 +66,20 @@ Additional info
 
 - When the smart contract accesses `msg.sender` , the value is `from` in the transaction.
 
-  
 
-# Implements
 
-Session-key Aspect project contains three components.
+### Implementation
+Session-key Aspect project contains three components:
 
 - **Client**, `sessioin-key-aspect.js`, a client for the dApp front end to use session key.
 - **Aspect**, wasm bytecode deployed on Artela
 - **Explorer,** extend Artela explorer to show Aspect info
 
-
-![截屏2023-11-09 16.16.17.png](https://github.com/artela-network/session-key-aspect/blob/main/img/2023-11-09-16.16.17.png)
-
-
-
-# Client Details
-
-`sessioin-key-aspect.js` is the client of Session-key Aspect.
-
-It contains 3 key modules:
-
-- session-key store
-- signer
-- aspect-client
-
-**session-key store** offers:
-
-- generate key pair in the front end
-
-- manage key pair in the browser cache
-
-  ( including store, load, clear, etc.)
-
-**signer** offers:
-
-- high-level API for dApp to use the session key
-
-- load session key from
+![截屏2023-11-09 16.16.17.png](https://github.com/QiyuanMa/session-key-aspect-example/blob/main/img/2023-11-09-16.16.17.png)
 
   
 
-# What’s the difference between AA
+#### What’s the difference between AA
 
 **It works like AA (abstract account).** For example, we can design a kind of AA that can be signed by a main private key and some session keys.
 
@@ -123,3 +94,28 @@ It contains 3 key modules:
 - Users only need to manage one key.
 
   If you use AA, you might manage several AA wallets with different function. By using Aspect to extend EoA, you just use one wallet with several extension functions.
+
+
+## Value to the Artela Ecosystem
+The Session-Key Aspect brings several valuable features to the Artela Ecosystem:
+
+**Enhanced Security:** By allowing EoAs to create session keys for specific transactions, the ecosystem becomes more secure as private keys are not exposed for every interaction.
+
+**Improved Usability:** Users can enjoy a better user experience by managing one wallet with several extension functions, rather than dealing with multiple abstract accounts (AA).
+
+**Flexibility:** EoAs can upgrade to a form of AA that supports session keys without the need to transfer assets, providing flexibility in managing accounts.
+
+**Integration:** The Session-Key Aspect can be integrated into various dApps, enabling on-click trading for DeFi protocols, enhancing UX and wallet security for web applications, and making dApps function like web2 products with simplified login and interaction processes.
+
+For more detailed information, please refer to the project repository.
+
+## How to Use
+
+### Project Intro
+
+* Folder [aspect](https://github.com/QiyuanMa/session-key-aspect-example/blob/main/aspect/README.md) implements the session key Aspect;
+* Folder [js_client](https://github.com/QiyuanMa/session-key-aspect-example/blob/main/js_client/session_key_aspect_client/README.md) implements the session key Aspect javascript client.
+
+### Integration
+* Bind session key Aspect to you contract by this [guide](https://github.com/QiyuanMa/session-key-aspect-example/blob/main/aspect/README.md)
+* Integrate js client to you font-end dApp by this [guide](https://github.com/QiyuanMa/session-key-aspect-example/blob/main/js_client/session_key_aspect_client/README.md)
