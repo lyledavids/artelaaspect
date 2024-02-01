@@ -67,7 +67,7 @@ Sunny enriches the Artela ecosystem by demonstrating the practical utility of Ar
 
 
 ## Contract Overview
-Smart contract functions to  handle various aspects of the freelancing platform. Here's an overview of how some key functions might work
+Smart contract functions in AssemblyScript to  handle various aspects of the freelancing platform. Here's an overview of how some key functions might work
 
 1. **User Registration and Identity Verification:**
    ```typescript
