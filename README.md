@@ -65,3 +65,62 @@ Implement a decentralized dispute resolution mechanism using smart contracts and
 ## Value to the Artela Ecosystem
 Sunny enriches the Artela ecosystem by demonstrating the practical utility of Artela's blockchain technology in the freelancing industry. Through the innovative use of smart contracts for secure escrow systems, transparent identity verification, and decentralized governance, the DApp showcases Artela's robust capabilities. The platform's commitment to storing immutable work history and reputation data on the Artela blockchain underscores the network's capacity for transparent and tamper-proof record-keeping. By promoting cross-platform compatibility and fostering community-driven decision-making, Sunny contributes to Artela's growing reputation as a leading platform for decentralized applications, encouraging wider adoption and showcasing Artela's role in revolutionizing various industries.
 
+
+## Contract Overview
+Smart contract functions to  handle various aspects of the freelancing platform. Here's an overview of how some key functions might work
+
+1. **User Registration and Identity Verification:**
+   ```typescript
+   export function registerUser(userAddress: string, username: string, identityHash: string): void {
+       // Implementation to store user details on the blockchain
+   }
+   ```
+
+2. **Project Creation:**
+   ```typescript
+   export function createProject(projectId: i32, client: string, projectDetails: string, budget: i32): void {
+       // Implementation to create a new project and initiate escrow
+   }
+   ```
+
+3. **Freelancer Proposal Submission:**
+   ```typescript
+   export function submitProposal(projectId: i32, freelancer: string, proposalDetails: string): void {
+       // Implementation to record freelancer proposals on the blockchain
+   }
+   ```
+
+4. **Smart Contract Escrow System:**
+   ```typescript
+   export function depositEscrow(projectId: i32): void {
+       // Implementation to handle the deposit of funds into escrow
+   }
+   ```
+
+5. **Skill Verification through Oracles:**
+   ```typescript
+   export function verifySkill(freelancer: string, skill: string, skillScore: i32): void {
+       // Implementation to leverage oracles for skill verification
+   }
+   ```
+
+6. **Decentralized Governance:**
+   ```typescript
+   export function proposeChange(changeDetails: string): void {
+       // Implementation to allow users to propose changes to the platform
+   }
+   ```
+
+7. **Payment Release and Dispute Resolution:**
+   ```typescript
+   export function releasePayment(projectId: i32): void {
+       // Implementation to release funds and handle dispute resolution
+   }
+   ```
+
+8. **Immutable Work History:**
+   ```typescript
+   export function recordWorkHistory(freelancer: string, projectId: i32, projectDetails: string, successful: bool): void {
+       // Implementation to record completed projects on Artela
+   }
+   ```
